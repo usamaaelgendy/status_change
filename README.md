@@ -1,4 +1,4 @@
-<p align="center">Easy timeline View package for Flutter! 👌</p>
+<p align="center">Easy Status Change package for Flutter! 👌</p>
 
 > ***Caveat***: This package is an early stage. Not enough testing has been done to guarantee stability. Some APIs may change.
 
