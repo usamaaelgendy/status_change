@@ -4,7 +4,7 @@ import 'package:status_change/status_change.dart';
 
 abstract class Connector extends StatelessWidget with ThemedConnectorComponent {
   const Connector({
-    Key key,
+    Key? key,
     this.direction,
     this.space,
     this.thickness,
@@ -18,31 +18,31 @@ abstract class Connector extends StatelessWidget with ThemedConnectorComponent {
         super(key: key);
 
   @override
-  final Axis direction;
+  final Axis? direction;
   @override
-  final double space;
+  final double? space;
   @override
-  final double thickness;
+  final double? thickness;
 
   @override
-  final double indent;
+  final double? indent;
 
   @override
-  final double endIndent;
+  final double? endIndent;
 
   @override
-  final Color color;
+  final Color? color;
 }
 
 class SolidLineConnector extends Connector {
   const SolidLineConnector({
-    Key key,
-    Axis direction,
-    double thickness,
-    double space,
-    double indent,
-    double endIndent,
-    Color color,
+    Key? key,
+    Axis? direction,
+    double? thickness,
+    double? space,
+    double? indent,
+    double? endIndent,
+    Color? color,
   }) : super(
           key: key,
           thickness: thickness,
@@ -92,12 +92,12 @@ class SolidLineConnector extends Connector {
 
 class DecoratedLineConnector extends Connector {
   const DecoratedLineConnector({
-    Key key,
-    Axis direction,
-    double thickness,
-    double space,
-    double indent,
-    double endIndent,
+    Key? key,
+    Axis? direction,
+    double? thickness,
+    double? space,
+    double? indent,
+    double? endIndent,
     this.decoration,
   }) : super(
           key: key,
@@ -107,7 +107,7 @@ class DecoratedLineConnector extends Connector {
           endIndent: endIndent,
         );
 
-  final Decoration decoration;
+  final Decoration? decoration;
 
   @override
   Widget build(BuildContext context) {
@@ -148,11 +148,11 @@ class DecoratedLineConnector extends Connector {
 
 class TransparentConnector extends Connector {
   const TransparentConnector({
-    Key key,
-    Axis direction,
-    double indent,
-    double endIndent,
-    double space,
+    Key? key,
+    Axis? direction,
+    double? indent,
+    double? endIndent,
+    double? space,
   }) : super(
           key: key,
           direction: direction,
@@ -175,12 +175,12 @@ class TransparentConnector extends Connector {
 
 class _ConnectorIndent extends StatelessWidget {
   const _ConnectorIndent({
-    Key key,
-    @required this.direction,
-    @required this.space,
-    @required this.indent,
-    @required this.endIndent,
-    @required this.child,
+    Key? key,
+    required this.direction,
+    required this.space,
+    required this.indent,
+    required this.endIndent,
+    required this.child,
   })  : assert(direction != null),
         assert(space == null || space >= 0),
         assert(indent == null || indent >= 0),
@@ -189,7 +189,7 @@ class _ConnectorIndent extends StatelessWidget {
         super(key: key);
 
   final Axis direction;
-  final double space;
+  final double? space;
 
   final double indent;
 

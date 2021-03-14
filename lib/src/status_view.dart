@@ -6,10 +6,10 @@ import 'theme/status_change_theme.dart';
 
 class StatusChange extends BoxScrollView {
   factory StatusChange.tileBuilder({
-    Key key,
-    @required StatusChangeTileBuilder builder,
-    Axis scrollDirection,
-    StatusChangeThemeData theme,
+    Key? key,
+    required StatusChangeTileBuilder builder,
+    Axis? scrollDirection,
+    StatusChangeThemeData? theme,
   }) {
     assert(builder.itemCount == null || builder.itemCount >= 0);
     return StatusChange.custom(
@@ -24,10 +24,10 @@ class StatusChange extends BoxScrollView {
   }
 
   StatusChange.custom({
-    Key key,
-    Axis scrollDirection,
-    @required this.childrenDelegate,
-    StatusChangeThemeData theme,
+    Key? key,
+    Axis? scrollDirection,
+    required this.childrenDelegate,
+    StatusChangeThemeData? theme,
   })  : assert(childrenDelegate != null),
         assert(scrollDirection == null || theme == null,
             'Cannot provide both a scrollDirection and a theme.'),
@@ -39,7 +39,7 @@ class StatusChange extends BoxScrollView {
 
   final SliverChildDelegate childrenDelegate;
 
-  final StatusChangeThemeData theme;
+  final StatusChangeThemeData? theme;
 
   @override
   Widget buildChildLayout(BuildContext context) {

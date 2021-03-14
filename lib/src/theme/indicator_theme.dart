@@ -11,16 +11,16 @@ class IndicatorThemeData with Diagnosticable {
     this.position,
   });
 
-  final Color color;
+  final Color? color;
 
-  final double size;
+  final double? size;
 
-  final double position;
+  final double? position;
 
   IndicatorThemeData copyWith({
-    Color color,
-    double size,
-    double position,
+    Color? color,
+    double? size,
+    double? position,
   }) {
     return IndicatorThemeData(
       color: color ?? this.color,
@@ -54,15 +54,15 @@ class IndicatorThemeData with Diagnosticable {
 
 class IndicatorTheme extends InheritedTheme {
   const IndicatorTheme({
-    Key key,
-    @required this.data,
-    Widget child,
+    Key? key,
+    required this.data,
+    required Widget child,
   })  : assert(data != null),
         super(key: key, child: child);
 
   final IndicatorThemeData data;
 
-  static IndicatorThemeData of(BuildContext context) {
+  static IndicatorThemeData? of(BuildContext context) {
     final indicatorTheme =
         context.dependOnInheritedWidgetOfExactType<IndicatorTheme>();
     return indicatorTheme?.data;
@@ -88,15 +88,15 @@ class IndicatorTheme extends InheritedTheme {
 }
 
 mixin ThemedIndicatorComponent on PositionedIndicator {
-  Color get color;
+  Color? get color;
 
-  Color getEffectiveColor(BuildContext context) {
-    return color ?? IndicatorTheme.of(context).color;
+  Color? getEffectiveColor(BuildContext context) {
+    return color ?? IndicatorTheme.of(context)!.color;
   }
 
-  double get size;
+  double? get size;
 
-  double getEffectiveSize(BuildContext context) {
-    return size ?? IndicatorTheme.of(context).size;
+  double? getEffectiveSize(BuildContext context) {
+    return size ?? IndicatorTheme.of(context)!.size;
   }
 }

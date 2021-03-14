@@ -7,7 +7,7 @@ import 'package:status_change/status_change.dart';
 import 'indicators.dart';
 
 mixin StatusChangeTileNode on Widget {
-  double get position;
+  double? get position;
   double getEffectivePosition(BuildContext context) {
     return position ?? .5;
   }
@@ -15,11 +15,11 @@ mixin StatusChangeTileNode on Widget {
 
 class TimelineNode extends StatelessWidget with StatusChangeTileNode {
   const TimelineNode({
-    Key key,
+    Key? key,
     this.direction,
     this.startConnector,
     this.endConnector,
-    this.indicator,
+    required this.indicator,
     this.indicatorPosition,
     this.position,
   })  : assert(indicator != null),
@@ -28,16 +28,16 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
         super(key: key);
 
   TimelineNode.simple({
-    Key key,
-    Axis direction,
-    Color color,
-    double lineThickness,
-    double nodePosition,
-    double indicatorPosition,
-    double indicatorSize,
-    Widget indicatorChild,
-    double indent,
-    double endIndent,
+    Key? key,
+    Axis? direction,
+    Color? color,
+    double? lineThickness,
+    double? nodePosition,
+    double? indicatorPosition,
+    double? indicatorSize,
+    Widget? indicatorChild,
+    double? indent,
+    double? endIndent,
     bool drawStartConnector = true,
     bool drawEndConnector = true,
   }) : this(
@@ -71,18 +71,18 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
           position: nodePosition,
         );
 
-  final Axis direction;
+  final Axis? direction;
 
-  final Widget startConnector;
+  final Widget? startConnector;
 
-  final Widget endConnector;
+  final Widget? endConnector;
 
   final Widget indicator;
 
-  final double indicatorPosition;
+  final double? indicatorPosition;
 
   @override
-  final double position;
+  final double? position;
 
   double _getEffectiveIndicatorPosition(BuildContext context) {
     var indicatorPosition = this.indicatorPosition;

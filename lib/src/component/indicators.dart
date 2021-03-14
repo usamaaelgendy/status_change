@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:status_change/src/theme/indicator_theme.dart';
 
 mixin PositionedIndicator on Widget {
-  double get position;
+  double? get position;
   double getEffectivePosition(BuildContext context) {
-    return position ?? IndicatorTheme.of(context).position ?? .5;
+    return position ?? IndicatorTheme.of(context)!.position ?? .5;
   }
 }
 
 abstract class Indicator extends StatelessWidget
     with PositionedIndicator, ThemedIndicatorComponent {
   const Indicator({
-    Key key,
+    Key? key,
     this.size,
     this.color,
     this.border,
@@ -22,25 +22,25 @@ abstract class Indicator extends StatelessWidget
         super(key: key);
 
   @override
-  final double size;
+  final double? size;
 
   @override
-  final Color color;
+  final Color? color;
 
   @override
-  final double position;
+  final double? position;
 
-  final BoxBorder border;
+  final BoxBorder? border;
 
-  final Widget child;
+  final Widget? child;
 }
 
 class DotIndicator extends Indicator {
   const DotIndicator({
-    Key key,
-    double size,
-    Color color,
-    double position,
+    Key? key,
+    double? size,
+    Color? color,
+    double? position,
     this.border,
     this.child,
   }) : super(
@@ -50,9 +50,9 @@ class DotIndicator extends Indicator {
           position: position,
         );
 
-  final BoxBorder border;
+  final BoxBorder? border;
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -75,10 +75,10 @@ class DotIndicator extends Indicator {
 
 class OutlinedDotIndicator extends Indicator {
   const OutlinedDotIndicator({
-    Key key,
-    double size,
-    Color color,
-    double position,
+    Key? key,
+    double? size,
+    Color? color,
+    double? position,
     this.backgroundColor,
     this.borderWidth = 2.0,
     this.child,
@@ -91,11 +91,11 @@ class OutlinedDotIndicator extends Indicator {
           position: position,
         );
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   final double borderWidth;
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +104,7 @@ class OutlinedDotIndicator extends Indicator {
       color: backgroundColor ?? Colors.transparent,
       position: position,
       border: Border.all(
-        color: color ?? getEffectiveColor(context),
+        color: color ?? getEffectiveColor(context)!,
         width: borderWidth,
       ),
       child: child,

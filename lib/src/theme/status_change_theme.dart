@@ -9,9 +9,9 @@ import 'indicator_theme.dart';
 
 class StatusChangeTheme extends StatelessWidget {
   const StatusChangeTheme({
-    Key key,
-    @required this.data,
-    @required this.child,
+    Key? key,
+    required this.data,
+    required this.child,
   }) : super(key: key);
 
   final StatusChangeThemeData data;
@@ -48,9 +48,9 @@ class StatusChangeTheme extends StatelessWidget {
 
 class _InheritedTheme extends InheritedTheme {
   const _InheritedTheme({
-    Key key,
-    @required this.theme,
-    @required Widget child,
+    Key? key,
+    required this.theme,
+    required Widget child,
   })  : assert(theme != null),
         super(key: key, child: child);
 
@@ -72,9 +72,9 @@ class _InheritedTheme extends InheritedTheme {
 @immutable
 class StatusChangeThemeData with Diagnosticable {
   factory StatusChangeThemeData({
-    Axis direction,
-    IndicatorThemeData indicatorTheme,
-    ConnectorThemeData connectorTheme,
+    Axis? direction,
+    IndicatorThemeData? indicatorTheme,
+    ConnectorThemeData? connectorTheme,
   }) {
     direction ??= Axis.vertical;
     indicatorTheme ??= IndicatorThemeData();
@@ -88,9 +88,9 @@ class StatusChangeThemeData with Diagnosticable {
   factory StatusChangeThemeData.fallback() => StatusChangeThemeData.vertical();
 
   const StatusChangeThemeData.raw({
-    @required this.direction,
-    @required this.indicatorTheme,
-    @required this.connectorTheme,
+    required this.direction,
+    required this.indicatorTheme,
+    required this.connectorTheme,
   })  : assert(direction != null),
         assert(indicatorTheme != null),
         assert(connectorTheme != null);
@@ -113,11 +113,11 @@ class StatusChangeThemeData with Diagnosticable {
 
   /// Creates a copy of this theme but with the given fields replaced with the new values.
   StatusChangeThemeData copyWith({
-    Axis direction,
-    Color color,
-    double indicatorPosition,
-    IndicatorThemeData indicatorTheme,
-    ConnectorThemeData connectorTheme,
+    Axis? direction,
+    Color? color,
+    double? indicatorPosition,
+    IndicatorThemeData? indicatorTheme,
+    ConnectorThemeData? connectorTheme,
   }) {
     return StatusChangeThemeData.raw(
       direction: direction ?? this.direction,

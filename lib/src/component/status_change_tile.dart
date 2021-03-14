@@ -17,9 +17,9 @@ enum StatusChangeNodeAlign {
 
 class StatusChangeTile extends StatelessWidget {
   const StatusChangeTile({
-    Key key,
+    Key? key,
     this.direction,
-    @required this.node,
+    required this.node,
     this.nodeAlign = StatusChangeNodeAlign.basic,
     this.nodePosition,
     this.contents,
@@ -37,22 +37,22 @@ class StatusChangeTile extends StatelessWidget {
         assert(nodePosition == null || nodePosition >= 0),
         super(key: key);
 
-  final Axis direction;
+  final Axis? direction;
 
   final Widget node;
 
   final StatusChangeNodeAlign nodeAlign;
 
-  final double nodePosition;
+  final double? nodePosition;
 
-  final Widget contents;
+  final Widget? contents;
 
-  final Widget oppositeContents;
+  final Widget? oppositeContents;
 
-  final double mainAxisExtent;
+  final double? mainAxisExtent;
 
   /// the child's height.
-  final double crossAxisExtent;
+  final double? crossAxisExtent;
 
   double _getEffectiveNodePosition(BuildContext context) {
     if (nodeAlign == StatusChangeNodeAlign.start) return 0.0;

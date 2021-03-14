@@ -1,12 +1,12 @@
 name: status_change
-version: 0.0.1
+version: 1.0.0
 description: Status Change Package
 author: Pesa Coder
 homepage: https://github.com/UsamaElgendy/
 repository: https://github.com/UsamaElgendy/status_change
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

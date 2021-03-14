@@ -10,14 +10,14 @@ class ConnectorThemeData with Diagnosticable {
     this.thickness,
   });
 
-  final double space;
+  final double? space;
 
-  final double thickness;
+  final double? thickness;
 
   ConnectorThemeData copyWith({
-    Color color,
-    double space,
-    double thickness,
+    Color? color,
+    double? space,
+    double? thickness,
   }) {
     return ConnectorThemeData(
       space: space ?? this.space,
@@ -53,9 +53,9 @@ class ConnectorThemeData with Diagnosticable {
 
 class ConnectorTheme extends InheritedTheme {
   const ConnectorTheme({
-    Key key,
-    @required this.data,
-    Widget child,
+    Key? key,
+    required this.data,
+    required Widget child,
   })  : assert(data != null),
         super(key: key, child: child);
 
@@ -87,39 +87,39 @@ class ConnectorTheme extends InheritedTheme {
 }
 
 mixin ThemedConnectorComponent on Widget {
-  Axis get direction;
+  Axis? get direction;
 
   Axis getEffectiveDirection(BuildContext context) {
     return direction ?? StatusChangeTheme.of(context).direction;
   }
 
-  double get thickness;
+  double? get thickness;
 
   double getEffectiveThickness(BuildContext context) {
     return thickness ?? ConnectorTheme.of(context).thickness ?? 2.0;
   }
 
-  double get space;
+  double? get space;
 
-  double getEffectiveSpace(BuildContext context) {
+  double? getEffectiveSpace(BuildContext context) {
     return space ?? ConnectorTheme.of(context).space;
   }
 
-  double get indent;
+  double? get indent;
 
   double getEffectiveIndent(BuildContext context) {
     return indent ?? 0.0;
   }
 
-  double get endIndent;
+  double? get endIndent;
 
   double getEffectiveEndIndent(BuildContext context) {
     return endIndent ?? 0.0;
   }
 
-  Color get color;
+  Color? get color;
 
-  Color getEffectiveColor(BuildContext context) {
+  Color? getEffectiveColor(BuildContext context) {
     return color;
   }
 }
