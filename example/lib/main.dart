@@ -1,6 +1,5 @@
+import 'package:example/example_vertical/vertical_example.dart';
 import 'package:flutter/material.dart';
-
-import 'example_vertical/vertical_example.dart';
 
 void main() {
   runApp(MyApp());
