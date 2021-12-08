@@ -34,7 +34,7 @@ class _HorizontalExampleState extends State<HorizontalExample> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
-          "CheckOut",
+          "Order Status",
           style: TextStyle(
             color: Colors.black,
           ),
@@ -43,86 +43,95 @@ class _HorizontalExampleState extends State<HorizontalExample> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Container(
-            height: 100,
-            child: StatusChange.tileBuilder(
-              theme: StatusChangeThemeData(
-                direction: Axis.horizontal,
-                connectorTheme: ConnectorThemeData(space: 1.0, thickness: 1.0),
-              ),
-              builder: StatusChangeTileBuilder.connected(
-                itemWidth: (_) =>
-                    MediaQuery.of(context).size.width / _processes.length,
-                nameWidgetBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                    child: Text(
-                      _processes[index],
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: getColor(index),
-                      ),
-                    ),
-                  );
-                },
-                indicatorWidgetBuilder: (_, index) {
-                  if (index <= _processIndex) {
-                    return DotIndicator(
-                      size: 35.0,
-                      border: Border.all(color: Colors.green, width: 1),
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.green,
-                          ),
+          Expanded(
+            child: Container(
+              child: StatusChange.tileBuilder(
+                theme: StatusChangeThemeData(
+                  direction: Axis.horizontal,
+                  connectorTheme:
+                      ConnectorThemeData(space: 1.0, thickness: 1.0),
+                ),
+                builder: StatusChangeTileBuilder.connected(
+                  itemWidth: (_) =>
+                      MediaQuery.of(context).size.width / _processes.length,
+                  contentWidgetBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        'add content here',
+                        style: TextStyle(
+                          color: Colors
+                              .blue, // change color with dynamic color --> can find it with example section
                         ),
                       ),
                     );
-                  } else {
-                    return OutlinedDotIndicator(
-                      size: 30,
-                      borderWidth: 1.0,
-                      color: todoColor,
+                  },
+                  nameWidgetBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        'your text ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: getColor(index),
+                        ),
+                      ),
                     );
-                  }
-                },
-                lineWidgetBuilder: (index) {
-                  if (index > 0) {
-                    if (index == _processIndex) {
-                      final prevColor = getColor(index - 1);
-                      final color = getColor(index);
-                      var gradientColors;
-                      gradientColors = [
-                        prevColor,
-                        Color.lerp(prevColor, color, 0.5)
-                      ];
-                      return DecoratedLineConnector(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: gradientColors,
+                  },
+                  indicatorWidgetBuilder: (_, index) {
+                    if (index <= _processIndex) {
+                      return DotIndicator(
+                        size: 35.0,
+                        border: Border.all(color: Colors.green, width: 1),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.green,
+                            ),
                           ),
                         ),
                       );
                     } else {
-                      return SolidLineConnector(
-                        color: getColor(index),
+                      return OutlinedDotIndicator(
+                        size: 30,
+                        borderWidth: 1.0,
+                        color: todoColor,
                       );
                     }
-                  } else {
-                    return null;
-                  }
-                },
-                itemCount: _processes.length,
+                  },
+                  lineWidgetBuilder: (index) {
+                    if (index > 0) {
+                      if (index == _processIndex) {
+                        final prevColor = getColor(index - 1);
+                        final color = getColor(index);
+                        var gradientColors;
+                        gradientColors = [
+                          prevColor,
+                          Color.lerp(prevColor, color, 0.5)
+                        ];
+                        return DecoratedLineConnector(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: gradientColors,
+                            ),
+                          ),
+                        );
+                      } else {
+                        return SolidLineConnector(
+                          color: getColor(index),
+                        );
+                      }
+                    } else {
+                      return null;
+                    }
+                  },
+                  itemCount: _processes.length,
+                ),
               ),
             ),
           ),
-          pages == Pages.DeliveryTime
-              ? DeliveryTime()
-              : pages == Pages.AddAddress
-                  ? AddAddress()
-                  : Summary()
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -131,11 +140,8 @@ class _HorizontalExampleState extends State<HorizontalExample> {
           print(_processIndex);
           setState(() {
             _processIndex++;
-            if (_processIndex == 1) {
-              pages = Pages.AddAddress;
-            } else if (_processIndex == 2) {
-              pages = Pages.Summary;
-            } else if (_processIndex == 3) {
+
+            if (_processIndex == 5) {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => FinishView()));
             }
@@ -148,7 +154,17 @@ class _HorizontalExampleState extends State<HorizontalExample> {
 }
 
 final _processes = [
-  'Delivery',
-  'Address',
-  'Summer',
+  'Order Signed',
+  'Order Processed',
+  'Shipped ',
+  'Out for delivery ',
+  'Delivered ',
+];
+
+final _content = [
+  '20/18',
+  '20/18',
+  '20/18',
+  '20/18',
+  '20/18',
 ];
