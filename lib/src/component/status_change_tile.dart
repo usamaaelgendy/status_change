@@ -62,6 +62,7 @@ class StatusChangeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: reduce direction check
     final direction = this.direction ?? StatusChangeTheme.of(context).direction;
     final nodeFlex = _getEffectiveNodePosition(context) * kFlexMultiplier;
