@@ -68,7 +68,7 @@ class VerticalExampleState extends State<VerticalExample> {
                 builder: StatusChangeTileBuilder.connected(
                   // itemWidth: (_) =>
                   //     MediaQuery.of(context).size.width / _processes.length,
-                  nodeAlign: StatusChangeNodeAlign.start,
+                  nodeAlign: StatusChangeNodeAlign.basic,
                   contentWidgetBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(15.0),
