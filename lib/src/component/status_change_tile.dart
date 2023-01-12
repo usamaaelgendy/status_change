@@ -24,9 +24,7 @@ class StatusChangeTile extends StatelessWidget {
     this.oppositeContents,
     this.mainAxisExtent,
     this.crossAxisExtent,
-  })  : assert(node != null),
-        assert(nodeAlign != null),
-        assert(
+  })  : assert(
           nodeAlign == StatusChangeNodeAlign.basic ||
               (nodeAlign != StatusChangeNodeAlign.basic &&
                   nodePosition == null),
