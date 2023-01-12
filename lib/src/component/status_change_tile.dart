@@ -18,7 +18,7 @@ class StatusChangeTile extends StatelessWidget {
     Key? key,
     this.direction,
     required this.node,
-    this.nodeAlign = StatusChangeNodeAlign.basic,
+    this.nodeAlign,
     this.nodePosition,
     this.contents,
     this.oppositeContents,
@@ -37,7 +37,7 @@ class StatusChangeTile extends StatelessWidget {
 
   final Widget node;
 
-  final StatusChangeNodeAlign nodeAlign;
+  final StatusChangeNodeAlign? nodeAlign;
 
   final double? nodePosition;
 
