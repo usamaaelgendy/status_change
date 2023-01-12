@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:status_change/src/helper/util.dart';
 
 import '../../status_change.dart';
-import 'status_change_node.dart';
 
 /// Align the timeline node within the timeline tile.
 enum StatusChangeNodeAlign {
