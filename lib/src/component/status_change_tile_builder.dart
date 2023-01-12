@@ -6,6 +6,7 @@ typedef IndexedValueBuilder<T> = T Function(int index);
 class StatusChangeTileBuilder {
   factory StatusChangeTileBuilder.connected({
     required int itemCount,
+    StatusChangeNodeAlign? nodeAlign,
     IndexedWidgetBuilder? nameWidgetBuilder,
     IndexedWidgetBuilder? contentWidgetBuilder,
     IndexedWidgetBuilder? indicatorWidgetBuilder,
@@ -14,6 +15,7 @@ class StatusChangeTileBuilder {
   }) {
     return StatusChangeTileBuilder(
       itemCount: itemCount,
+      nodeAlign: nodeAlign ,
       contentsBuilder: nameWidgetBuilder,
       oppositeContentsBuilder: contentWidgetBuilder,
       indicatorBuilder: indicatorWidgetBuilder,
@@ -30,6 +32,7 @@ class StatusChangeTileBuilder {
 
   factory StatusChangeTileBuilder({
     required int itemCount,
+    StatusChangeNodeAlign? nodeAlign,
     IndexedWidgetBuilder? contentsBuilder,
     IndexedWidgetBuilder? oppositeContentsBuilder,
     IndexedWidgetBuilder? indicatorBuilder,
@@ -58,6 +61,7 @@ class StatusChangeTileBuilder {
             position: nodePositionBuilder?.call(index),
             indicator: indicatorBuilder!.call(context, index),
           ),
+          nodeAlign: nodeAlign ?? StatusChangeNodeAlign.basic,
           contents: effectiveContentsBuilder(context, index),
           oppositeContents: effectiveOppositeContentsBuilder(context, index),
         );
