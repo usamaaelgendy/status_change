@@ -179,11 +179,9 @@ class _ConnectorIndent extends StatelessWidget {
     required this.indent,
     required this.endIndent,
     required this.child,
-  })  : assert(direction != null),
-        assert(space == null || space >= 0),
-        assert(indent == null || indent >= 0),
-        assert(endIndent == null || endIndent >= 0),
-        assert(child != null),
+  })  : assert(space == null || space >= 0),
+        assert(indent >= 0),
+        assert(endIndent >= 0),
         super(key: key);
 
   final Axis direction;
