@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:status_change/src/helper/util.dart';
-import 'package:status_change/src/theme/status_change_theme.dart';
 import 'package:status_change/status_change.dart';
 
-import 'indicators.dart';
 
 mixin StatusChangeTileNode on Widget {
   double? get position;
