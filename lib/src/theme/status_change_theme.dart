@@ -88,9 +88,7 @@ class StatusChangeThemeData with Diagnosticable {
     required this.direction,
     required this.indicatorTheme,
     required this.connectorTheme,
-  })  : assert(direction != null),
-        assert(indicatorTheme != null),
-        assert(connectorTheme != null);
+  });
 
   factory StatusChangeThemeData.vertical() => StatusChangeThemeData(
         direction: Axis.vertical,
