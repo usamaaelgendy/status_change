@@ -141,7 +141,6 @@ class DecoratedLineConnector extends Connector {
         );
     }
 
-    throw ArgumentError('invalid direction: $direction');
   }
 }
 
