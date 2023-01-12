@@ -15,7 +15,7 @@ class StatusChangeTileBuilder {
   }) {
     return StatusChangeTileBuilder(
       itemCount: itemCount,
-      nodeAlign: nodeAlign ,
+      nodeAlign: nodeAlign,
       contentsBuilder: nameWidgetBuilder,
       oppositeContentsBuilder: contentWidgetBuilder,
       indicatorBuilder: indicatorWidgetBuilder,
@@ -75,7 +75,7 @@ class StatusChangeTileBuilder {
   const StatusChangeTileBuilder._(
     this._builder, {
     required this.itemCount,
-  })  : assert(itemCount >= 0);
+  }) : assert(itemCount >= 0);
 
   final IndexedWidgetBuilder _builder;
   final int itemCount;
@@ -89,12 +89,13 @@ class StatusChangeTileBuilder {
   }) {
     return (context, index) {
       if (index == 0) {
-        if (connectorBuilder != null) {
+        if (connectorBuilder == null) {
+          return connectorBuilder?.call(index);
+        } else {
           return connectorBuilder.call(index) ?? Text('');
         }
       }
-
-      return connectorBuilder?.call(index);
+      return connectorBuilder?.call(index) ?? SizedBox.shrink();
     };
   }
 
