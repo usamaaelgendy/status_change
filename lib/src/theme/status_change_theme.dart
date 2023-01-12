@@ -22,7 +22,7 @@ class StatusChangeTheme extends StatelessWidget {
   static StatusChangeThemeData of(BuildContext context) {
     final inheritedTheme =
         context.dependOnInheritedWidgetOfExactType<_InheritedTheme>();
-    return inheritedTheme?.theme?.data ?? _kFallbackTheme;
+    return inheritedTheme?.theme.data ?? _kFallbackTheme;
   }
 
   @override
