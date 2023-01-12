@@ -71,8 +71,7 @@ class StatusChangeTileBuilder {
   const StatusChangeTileBuilder._(
     this._builder, {
     required this.itemCount,
-  })  : assert(_builder != null),
-        assert(itemCount != null && itemCount >= 0);
+  })  : assert(itemCount >= 0);
 
   final IndexedWidgetBuilder _builder;
   final int itemCount;
