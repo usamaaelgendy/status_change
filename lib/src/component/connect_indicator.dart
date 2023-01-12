@@ -86,7 +86,6 @@ class SolidLineConnector extends Connector {
         );
     }
 
-    throw ArgumentError('invalid direction: $direction');
   }
 }
 
