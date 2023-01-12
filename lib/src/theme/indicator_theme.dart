@@ -57,8 +57,7 @@ class IndicatorTheme extends InheritedTheme {
     Key? key,
     required this.data,
     required Widget child,
-  })  : assert(data != null),
-        super(key: key, child: child);
+  })  : super(key: key, child: child);
 
   final IndicatorThemeData data;
 
