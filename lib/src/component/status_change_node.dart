@@ -97,7 +97,8 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
   Widget build(BuildContext context) {
     final direction = this.direction ?? StatusChangeTheme.of(context).direction;
     final overlap = _getEffectiveOverlap(context);
-    // TO/DO: support both flex and logical pixel
+    // ignore: todo
+    // TODO: support both flex and logical pixel
     final indicatorFlex = _getEffectiveIndicatorPosition(context);
     Widget line = indicator;
     final lineItems = [
