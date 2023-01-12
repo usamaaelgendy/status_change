@@ -19,8 +19,7 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
     required this.indicator,
     this.indicatorPosition,
     this.position,
-  })  : assert(indicator != null),
-        assert(indicatorPosition == null ||
+  })  : assert(indicatorPosition == null ||
             0 <= indicatorPosition && indicatorPosition <= 1),
         super(key: key);
 
@@ -98,7 +97,7 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
   Widget build(BuildContext context) {
     final direction = this.direction ?? StatusChangeTheme.of(context).direction;
     final overlap = _getEffectiveOverlap(context);
-    // TODO: support both flex and logical pixel
+    // TO/DO: support both flex and logical pixel
     final indicatorFlex = _getEffectiveIndicatorPosition(context);
     Widget line = indicator;
     final lineItems = [
