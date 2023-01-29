@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class FinishView extends StatelessWidget {
+  const FinishView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          child: Text("Finish View"),
-        ),
+    return const AlertDialog(
+      content: Text(
+        'Finish View'
       ),
     );
   }

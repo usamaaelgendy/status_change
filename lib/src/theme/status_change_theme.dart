@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,7 +22,7 @@ class StatusChangeTheme extends StatelessWidget {
   static StatusChangeThemeData of(BuildContext context) {
     final inheritedTheme =
         context.dependOnInheritedWidgetOfExactType<_InheritedTheme>();
-    return inheritedTheme?.theme?.data ?? _kFallbackTheme;
+    return inheritedTheme?.theme.data ?? _kFallbackTheme;
   }
 
   @override
@@ -51,8 +49,7 @@ class _InheritedTheme extends InheritedTheme {
     Key? key,
     required this.theme,
     required Widget child,
-  })  : assert(theme != null),
-        super(key: key, child: child);
+  })  : super(key: key, child: child);
 
   final StatusChangeTheme theme;
 
@@ -91,9 +88,7 @@ class StatusChangeThemeData with Diagnosticable {
     required this.direction,
     required this.indicatorTheme,
     required this.connectorTheme,
-  })  : assert(direction != null),
-        assert(indicatorTheme != null),
-        assert(connectorTheme != null);
+  });
 
   factory StatusChangeThemeData.vertical() => StatusChangeThemeData(
         direction: Axis.vertical,
@@ -142,7 +137,7 @@ class StatusChangeThemeData with Diagnosticable {
       indicatorTheme,
       connectorTheme,
     ];
-    return hashList(values);
+    return Object.hashAll(values);
   }
 
   @override

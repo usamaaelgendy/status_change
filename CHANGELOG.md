@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+## 3.0.0
+- Fixed - null value
+- Added and passed - nodeAlign
+- Upgrade to Flutter 3.3.10
 
-* TODO: Describe initial release.

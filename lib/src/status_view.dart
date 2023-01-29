@@ -11,7 +11,7 @@ class StatusChange extends BoxScrollView {
     Axis? scrollDirection,
     StatusChangeThemeData? theme,
   }) {
-    assert(builder.itemCount == null || builder.itemCount >= 0);
+    assert(builder.itemCount >= 0);
     return StatusChange.custom(
       key: key,
       childrenDelegate: SliverChildBuilderDelegate(
@@ -28,8 +28,7 @@ class StatusChange extends BoxScrollView {
     Axis? scrollDirection,
     required this.childrenDelegate,
     StatusChangeThemeData? theme,
-  })  : assert(childrenDelegate != null),
-        assert(scrollDirection == null || theme == null,
+  })  : assert(scrollDirection == null || theme == null,
             'Cannot provide both a scrollDirection and a theme.'),
         this.theme = theme,
         super(

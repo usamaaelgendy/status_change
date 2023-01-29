@@ -6,6 +6,7 @@ typedef IndexedValueBuilder<T> = T Function(int index);
 class StatusChangeTileBuilder {
   factory StatusChangeTileBuilder.connected({
     required int itemCount,
+    StatusChangeNodeAlign? nodeAlign,
     IndexedWidgetBuilder? nameWidgetBuilder,
     IndexedWidgetBuilder? contentWidgetBuilder,
     IndexedWidgetBuilder? indicatorWidgetBuilder,
@@ -14,6 +15,7 @@ class StatusChangeTileBuilder {
   }) {
     return StatusChangeTileBuilder(
       itemCount: itemCount,
+      nodeAlign: nodeAlign,
       contentsBuilder: nameWidgetBuilder,
       oppositeContentsBuilder: contentWidgetBuilder,
       indicatorBuilder: indicatorWidgetBuilder,
@@ -30,6 +32,7 @@ class StatusChangeTileBuilder {
 
   factory StatusChangeTileBuilder({
     required int itemCount,
+    StatusChangeNodeAlign? nodeAlign,
     IndexedWidgetBuilder? contentsBuilder,
     IndexedWidgetBuilder? oppositeContentsBuilder,
     IndexedWidgetBuilder? indicatorBuilder,
@@ -58,6 +61,7 @@ class StatusChangeTileBuilder {
             position: nodePositionBuilder?.call(index),
             indicator: indicatorBuilder!.call(context, index),
           ),
+          nodeAlign: nodeAlign ?? StatusChangeNodeAlign.basic,
           contents: effectiveContentsBuilder(context, index),
           oppositeContents: effectiveOppositeContentsBuilder(context, index),
         );
@@ -71,8 +75,7 @@ class StatusChangeTileBuilder {
   const StatusChangeTileBuilder._(
     this._builder, {
     required this.itemCount,
-  })  : assert(_builder != null),
-        assert(itemCount != null && itemCount >= 0);
+  }) : assert(itemCount >= 0);
 
   final IndexedWidgetBuilder _builder;
   final int itemCount;
@@ -86,12 +89,13 @@ class StatusChangeTileBuilder {
   }) {
     return (context, index) {
       if (index == 0) {
-        if (connectorBuilder != null) {
-          return connectorBuilder.call(index);
+        if (connectorBuilder == null) {
+          return connectorBuilder?.call(index);
+        } else {
+          return connectorBuilder.call(index) ?? Text('');
         }
       }
-
-      return connectorBuilder?.call(index);
+      return connectorBuilder?.call(index) ?? SizedBox.shrink();
     };
   }
 

@@ -30,7 +30,7 @@ class IndicatorThemeData with Diagnosticable {
   }
 
   @override
-  int get hashCode => hashValues(color, size, position);
+  int get hashCode => Object.hash(color, size, position);
 
   @override
   bool operator ==(Object other) {
@@ -57,8 +57,7 @@ class IndicatorTheme extends InheritedTheme {
     Key? key,
     required this.data,
     required Widget child,
-  })  : assert(data != null),
-        super(key: key, child: child);
+  })  : super(key: key, child: child);
 
   final IndicatorThemeData data;
 

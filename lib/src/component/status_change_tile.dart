@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:status_change/src/helper/util.dart';
 
 import '../../status_change.dart';
-import 'status_change_node.dart';
 
 /// Align the timeline node within the timeline tile.
 enum StatusChangeNodeAlign {
@@ -20,15 +18,13 @@ class StatusChangeTile extends StatelessWidget {
     Key? key,
     this.direction,
     required this.node,
-    this.nodeAlign = StatusChangeNodeAlign.basic,
+    this.nodeAlign,
     this.nodePosition,
     this.contents,
     this.oppositeContents,
     this.mainAxisExtent,
     this.crossAxisExtent,
-  })  : assert(node != null),
-        assert(nodeAlign != null),
-        assert(
+  })  : assert(
           nodeAlign == StatusChangeNodeAlign.basic ||
               (nodeAlign != StatusChangeNodeAlign.basic &&
                   nodePosition == null),
@@ -41,7 +37,7 @@ class StatusChangeTile extends StatelessWidget {
 
   final Widget node;
 
-  final StatusChangeNodeAlign nodeAlign;
+  final StatusChangeNodeAlign? nodeAlign;
 
   final double? nodePosition;
 
@@ -66,6 +62,7 @@ class StatusChangeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: reduce direction check
     final direction = this.direction ?? StatusChangeTheme.of(context).direction;
     final nodeFlex = _getEffectiveNodePosition(context) * kFlexMultiplier;

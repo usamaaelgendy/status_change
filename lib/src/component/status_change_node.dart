@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:status_change/src/helper/util.dart';
-import 'package:status_change/src/theme/status_change_theme.dart';
 import 'package:status_change/status_change.dart';
 
-import 'indicators.dart';
 
 mixin StatusChangeTileNode on Widget {
   double? get position;
@@ -22,8 +19,7 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
     required this.indicator,
     this.indicatorPosition,
     this.position,
-  })  : assert(indicator != null),
-        assert(indicatorPosition == null ||
+  })  : assert(indicatorPosition == null ||
             0 <= indicatorPosition && indicatorPosition <= 1),
         super(key: key);
 
@@ -101,6 +97,7 @@ class TimelineNode extends StatelessWidget with StatusChangeTileNode {
   Widget build(BuildContext context) {
     final direction = this.direction ?? StatusChangeTheme.of(context).direction;
     final overlap = _getEffectiveOverlap(context);
+    // ignore: todo
     // TODO: support both flex and logical pixel
     final indicatorFlex = _getEffectiveIndicatorPosition(context);
     Widget line = indicator;

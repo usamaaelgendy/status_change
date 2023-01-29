@@ -27,7 +27,7 @@ class ConnectorThemeData with Diagnosticable {
 
   @override
   int get hashCode {
-    return hashValues(
+    return Object.hash(
       space,
       thickness,
     );
@@ -56,8 +56,7 @@ class ConnectorTheme extends InheritedTheme {
     Key? key,
     required this.data,
     required Widget child,
-  })  : assert(data != null),
-        super(key: key, child: child);
+  })  : super(key: key, child: child);
 
   final ConnectorThemeData data;
 
