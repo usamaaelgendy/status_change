@@ -1,9 +1,9 @@
 name: status_change
 version: 3.0.0
 description: Status Change Package
-# author: Pesa Coder
-homepage: https://github.com/UsamaElgendy/
-repository: https://github.com/UsamaElgendy/status_change
+# author: Usama Elgendy
+homepage: https://usamaelgendy.com
+repository: https://github.com/usamaaelgendy/status_change
 
 environment:
   sdk: '>=2.18.6 <3.0.0'
